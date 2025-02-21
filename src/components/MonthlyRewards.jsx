@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const MonthlyRewards = ({ rewards }) => {
-    console.log(rewards);
+    
     return (
         <>
         <table>
