@@ -1,5 +1,5 @@
 export const calculatePoint = (amount) =>{
-
+//Nan check required
     if(amount<=50) return 0;
 
     if(amount>50 && amount<=100){

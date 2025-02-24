@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { calculatePoint } from '../utils/services/calculatePoints';
+import { calculatePoint } from '../utils/calculatePoints';
 
 export const AllTransactions = ({ transactions }) => {
   return (

@@ -1,16 +1,22 @@
-import useFetch from './utils/hooks/useFetch.js'
-import {monthlyAggregatePoints} from './utils/services/monthlyAndTotalAggregatePoints'
+import  fetchFromMockData  from './services/fetchFromMockData.js'
+import {monthlyAggregatePoints} from './utils/monthlyAndTotalAggregatePoints.js'
 import { AllTransactions } from './components/AllTransactions';
 import { MonthlyRewards } from './components/MonthlyRewards';
 import TotalRewards from './components/TotalRewards.jsx';
 
 
 function App() {
-  const { data, loading, error } = useFetch('/mockDataApi.js');
-  
+ 
+ const {data,loading,error} = fetchFromMockData()
 
 
-  const calculatedRewards = monthlyAggregatePoints(data)
+//Add a filter wrt today's date only last 3 months data needs to be passed
+
+const todaysDate = (new Date()).toISOString().split('T')[0];
+const last3MonthsData  = [...data].filter(({date})=>(
+  date.split('-')[1] - todaysDate.split('-')[1] < 3
+  ))
+  const calculatedRewards = monthlyAggregatePoints(last3MonthsData)
 
 
    if (loading) return <p>Loading...</p>;
@@ -19,10 +25,13 @@ function App() {
     <>
     <h1 style={{textAlign : 'center'}}>Reward System</h1>
 
-    <h3 style={{textAlign : 'center'}}>Transactions</h3>
+    <h3 style={{textAlign : 'center'}}>All Transactions</h3>
     <AllTransactions transactions = {data}/>
 
-    <h3 style={{textAlign : 'center'}}>Monthly Rewards</h3>
+    <h3 style={{textAlign : 'center'}}>Last 3 month Transactions</h3>
+    <AllTransactions transactions = {last3MonthsData}/>
+
+    <h3 style={{textAlign : 'center'}}>Monthly Rewards in last 3 months</h3>
     <MonthlyRewards rewards = {calculatedRewards}/>
 
     <h3 style={{textAlign : 'center'}}>Total Rewards</h3>
