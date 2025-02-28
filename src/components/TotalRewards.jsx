@@ -1,24 +1,25 @@
-import React from 'react'
+import React from "react";
 
-const TotalRewards = ({rewards}) => {
+const TotalRewards = ({ rewards }) => {
   return (
     <table>
-        <thead><tr>
-
-            <th>Customer Name</th>
-            <th>Total Rewards Earned</th>
+      <thead>
+        <tr>
+          <th>Customer Name</th>
+          <th>Total Rewards Earned</th>
         </tr>
-        </thead>
+      </thead>
 
-        <tbody>
-        {Object.entries(rewards).map(([customerId, { Name, totalReward }]) => (
+      <tbody>
+        {Object.entries(rewards).map(([customerId, { name, totalReward }]) => (
           <tr key={customerId}>
-            <td>{Name}</td>
+            <td>{name}</td>
             <td>{totalReward}</td>
-          </tr>))}
-        </tbody>
+          </tr>
+        ))}
+      </tbody>
     </table>
-  )
-}
+  );
+};
 
-export default TotalRewards
+export default TotalRewards;

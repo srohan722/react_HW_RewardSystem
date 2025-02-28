@@ -1,36 +1,50 @@
-import {calculatePoint} from './calculatePoints'
-export const monthlyAggregatePoints = ( transactions ) => {
-    try {
+import { calculatePoint } from "./calculatePoints";
+import logger from "./logger";
 
-        const sortedTransactions = [...transactions].sort((a, b) => new Date(a.date) - new Date(b.date));
+/**
+ * Calculates the monthly aggregate reward points for each customer based on their transactions.
+ *
+ * @param {Array} transactions - An array of transaction objects.
+ * @param {string} transactions[].customerId - The ID of the customer.
+ * @param {string} transactions[].name - The name of the customer.
+ * @param {string} transactions[].date - The date of the transaction in ISO format.
+ * @param {number} transactions[].amount - The amount of the transaction.
+ * @returns {Object} An object where each key is a customerId and the value is an object containing the customer's name, rewards by month, and total reward points.
+ * @throws Will throw an error if the transactions array is not properly formatted.
+ */
+export const monthlyAggregatePoints = (transactions) => {
+  try {
+    const sortedTransactions = [...transactions].sort(
+      (a, b) => new Date(b.date) - new Date(a.date)
+    );
 
-        return sortedTransactions.reduce((acc,transaction)=>{
-            const {CustomerId,Name,date,Amount} = transaction;
-            const monthYear = new Date(date).toLocaleString("default", {month :"long",year:"numeric"})
+    return sortedTransactions.reduce((acc, transaction) => {
+      const { customerId, name, date, amount } = transaction;
+      const monthYear = new Date(date).toLocaleString("default", {
+        month: "long",
+        year: "numeric",
+      });
 
-            if(!acc[CustomerId]){
-                acc[CustomerId] = {
-                    Name,
-                    rewardsByMonth : {},
-                    totalReward : 0
-                }
-            }
+      if (!acc[customerId]) {
+        acc[customerId] = {
+          name,
+          rewardsByMonth: {},
+          totalReward: 0,
+        };
+      }
 
+      if (!acc[customerId].rewardsByMonth[monthYear]) {
+        acc[customerId].rewardsByMonth[monthYear] = 0;
+      }
 
-            if(!acc[CustomerId].rewardsByMonth[monthYear]){
-                acc[CustomerId].rewardsByMonth[monthYear]=0
-            }
+      const points = calculatePoint(amount);
+      acc[customerId].rewardsByMonth[monthYear] += points;
+      acc[customerId].totalReward += points;
 
-            const points = calculatePoint(Amount)
-            acc[CustomerId].rewardsByMonth[monthYear] += points;
-            acc[CustomerId].totalReward += points;
-
-
-            return acc;
-        },{})
-    } catch (error) {
-
-        console.error("Error Found!",error)
-        return {}
-    }
-}
+      return acc;
+    }, {});
+  } catch (error) {
+    logger.error("Error Found!", error);
+    return {};
+  }
+};
