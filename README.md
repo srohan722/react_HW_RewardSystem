@@ -1,6 +1,7 @@
 # Rewards Program
 
 A React application that calculates customer rewards points based on purchase transactions.
+![Image Of Tables](/public/images/imageOfTables.png)
 
 ## Features
 
@@ -94,3 +95,5 @@ src/
    - Comprehensive test cases
    - Coverage for edge cases
    - Proper test organization
+
+![Image Of Passed Test Cases](./public/images/imageOfTestCases.png)

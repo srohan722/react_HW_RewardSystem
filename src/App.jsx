@@ -4,7 +4,7 @@ import { AllTransactions } from './components/AllTransactions';
 import { MonthlyRewards } from './components/MonthlyRewards';
 import TotalRewards from './components/TotalRewards.jsx';
 import filterByMonths from './utils/filterByMonths.js';
-import { number } from 'prop-types';
+
 
 
 function App() {
