@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { calculatePoint } from "../utils/calculatePoints";
+import "./styles/table.css"
 
 export const AllTransactions = ({ transactions }) => {
   return (
-    <table>
+    <table className="all-transactions-table">
       <thead>
         <tr>
           <th>Transaction ID</th>

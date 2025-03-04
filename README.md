@@ -25,7 +25,7 @@ src/
 |   └── useFetch.js
 ├── services/
 │   └── fetchFromMockData.js
-│   
+│
 ├── utils/
 │   ├── calculations.js
 │   ├── filterByMonths.js
@@ -38,16 +38,19 @@ src/
 ## Implementation Details
 
 1. **Points Calculation**
+
    - 2 points for every dollar spent over $100
    - 1 point for every dollar spent between $50-$100
    - Proper handling of decimal values
 
 2. **Data Management**
+
    - Simulated async API call
    - Sorted transactions by date
    - Aggregated rewards by month and customer
 
 3. **Error Handling**
+
    - Comprehensive error handling
    - Loading states
    - Logging service
@@ -60,11 +63,13 @@ src/
 ## Running the Project
 
 1. Install dependencies:
+
    ```bash
    npm install
    ```
 
 2. Start the development server:
+
    ```bash
    npm run dev
    ```
@@ -77,16 +82,19 @@ src/
 ## Technical Decisions
 
 1. **Pure Functions**
+
    - Used pure functions for calculations
    - Avoided mutations using reduce/map
    - Extracted business logic to separate services
 
 2. **Error Handling**
+
    - Implemented proper error boundaries
    - Added loading states
    - Included logging service
 
 3. **Code Organization**
+
    - Separated concerns into components
    - Maintained single responsibility principle
    - Used proper naming conventions

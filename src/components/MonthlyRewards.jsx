@@ -1,9 +1,10 @@
 import React from "react";
+import "./styles/table.css"
 
 export const MonthlyRewards = ({ rewards }) => {
   return (
     <>
-      <table>
+      <table className="monthly-rewards-table">
         <thead>
           <tr>
             <th>Customer ID</th>

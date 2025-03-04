@@ -62,7 +62,8 @@ const filterByMonths = (data, todaysDateString, numberOfMonths) => {
 
     const diffInMonths =
       (todaysDate.getFullYear() - itemDate.getFullYear()) * 12 +
-      todaysDate.getMonth() - itemDate.getMonth();
+      todaysDate.getMonth() -
+      itemDate.getMonth();
 
     return diffInMonths < numberOfMonths;
   });

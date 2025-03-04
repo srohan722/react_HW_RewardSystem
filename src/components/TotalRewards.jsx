@@ -2,7 +2,7 @@ import React from "react";
 
 const TotalRewards = ({ rewards }) => {
   return (
-    <table>
+    <table className="total-rewards-table">
       <thead>
         <tr>
           <th>Customer Name</th>

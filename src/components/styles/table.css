@@ -1,0 +1,89 @@
+/* Tables.css */
+
+.all-transactions-table,
+.monthly-rewards-table,
+.total-rewards-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.all-transactions-table th,
+.monthly-rewards-table th,
+.total-rewards-table th,
+.all-transactions-table td,
+.monthly-rewards-table td,
+.total-rewards-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.all-transactions-table th,
+.monthly-rewards-table th,
+.total-rewards-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.all-transactions-table tbody tr:nth-child(even),
+.monthly-rewards-table tbody tr:nth-child(even),
+.total-rewards-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.all-transactions-table tbody tr:hover,
+.monthly-rewards-table tbody tr:hover,
+.total-rewards-table tbody tr:hover {
+  background-color: #e0f7fa;
+}
+
+.all-transactions-table td:last-child,
+.monthly-rewards-table td:last-child,
+.total-rewards-table td:last-child {
+  text-align: right;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .all-transactions-table thead,
+  .monthly-rewards-table thead,
+  .total-rewards-table thead {
+    display: none;
+  }
+
+  .all-transactions-table tr,
+  .monthly-rewards-table tr,
+  .total-rewards-table tr {
+    display: block;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 4px;
+  }
+
+  .all-transactions-table td,
+  .monthly-rewards-table td,
+  .total-rewards-table td {
+    display: block;
+    text-align: right;
+    border-bottom: none;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  .all-transactions-table td:before,
+  .monthly-rewards-table td:before,
+  .total-rewards-table td:before {
+    position: absolute;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    content: attr(data-label);
+    text-align: left;
+    font-weight: bold;
+  }
+}
