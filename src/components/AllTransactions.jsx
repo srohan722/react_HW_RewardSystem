@@ -10,7 +10,7 @@ export const AllTransactions = ({ transactions }) => {
         <tr>
           <th>Transaction ID</th>
           <th>Customer ID</th>
-          <th>name</th>
+          <th>Name</th>
           <th>Date</th>
           <th>Product</th>
           <th>Price ($)</th>

@@ -1,7 +1,16 @@
 # Rewards Program
 
 A React application that calculates customer rewards points based on purchase transactions.
-![Image Of Tables](/public/images/imageOfTables.png)
+
+#### Image of All Transactions Table
+![All Transactions](./public/images/imageOfAllTransactionsTable.png)
+
+#### Image of Monthly Rewards Table
+![Monthly Rewards](./public/images/imageOfMonthlyRewardsTable.png)
+
+#### Image of Total Rewards Table
+![Total Rewards Table](./public/images/imageOfTotalRewardsTable.png)
+
 
 ## Features
 
@@ -12,6 +21,24 @@ A React application that calculates customer rewards points based on purchase tr
 - Includes error handling and loading states
 - Implements proper date sorting and formatting
 - Includes comprehensive test coverage
+## Running the Project
+
+1. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+2. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+3. Run tests:
+   ```bash
+   npm test
+   ```
 
 ## Project Structure
 
@@ -19,6 +46,8 @@ A React application that calculates customer rewards points based on purchase tr
 src/
 ├── components/
 │   ├── TransactionsTable.jsx
+│   ├──styles/
+│   │    └── table.css
 │   ├── MonthlyRewardsTable.jsx
 │   └── TotalRewardsTable.jsx
 ├── hooks/
@@ -60,24 +89,6 @@ src/
    - Coverage for edge cases
    - Decimal handling tests
 
-## Running the Project
-
-1. Install dependencies:
-
-   ```bash
-   npm install
-   ```
-
-2. Start the development server:
-
-   ```bash
-   npm run dev
-   ```
-
-3. Run tests:
-   ```bash
-   npm test
-   ```
 
 ## Technical Decisions
 

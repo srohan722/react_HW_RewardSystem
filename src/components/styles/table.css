@@ -1,9 +1,18 @@
 /* Tables.css */
 
 .all-transactions-table,
-.monthly-rewards-table,
-.total-rewards-table {
+.monthly-rewards-table
+{
   width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.total-rewards-table {
+  width: 50%;
   border-collapse: collapse;
   margin-top: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -18,7 +27,7 @@
 .monthly-rewards-table td,
 .total-rewards-table td {
   padding: 12px 15px;
-  text-align: left;
+  text-align: right;
   border-bottom: 1px solid #ddd;
 }
 

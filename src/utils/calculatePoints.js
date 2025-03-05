@@ -6,12 +6,15 @@
  * Will return 0 if the amount is less than or equal to 50, not a number, null, or undefined.
  */
 export const calculatePoint = (amount) => {
-  if (amount <= 50 || isNaN(amount) || amount === null || amount === undefined)
+  if (typeof amount !== "number" || amount <= 50) {
     return 0;
-
-  if (amount > 50 && amount <= 100) {
-    return Math.floor(amount - 50);
-  } else {
-    return Math.floor(amount - 100) * 2 + 50;
   }
+
+  const amountOver50 = Math.floor(amount - 50);
+
+  if (amountOver50 <= 50) {
+    return amountOver50;
+  }
+
+  return 50 + (amountOver50 - 50) * 2;
 };

@@ -1,4 +1,6 @@
+import PropTypes from "prop-types";
 import React from "react";
+
 
 const TotalRewards = ({ rewards }) => {
   return (
@@ -20,6 +22,14 @@ const TotalRewards = ({ rewards }) => {
       </tbody>
     </table>
   );
+};
+TotalRewards.propTypes = {
+  rewards: PropTypes.objectOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      totalReward: PropTypes.number.isRequired,
+    })
+  ).isRequired,
 };
 
 export default TotalRewards;
