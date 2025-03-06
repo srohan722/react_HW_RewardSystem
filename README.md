@@ -51,9 +51,9 @@ src/
 │   ├── MonthlyRewardsTable.jsx
 │   └── TotalRewardsTable.jsx
 ├── hooks/
-|   └── useFetch.js
+|   └── useFetchStates.js
 ├── services/
-│   └── fetchFromMockData.js
+│   └── fetchMockDataSet.js
 │
 ├── utils/
 │   ├── calculations.js
