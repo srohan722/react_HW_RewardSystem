@@ -1,12 +1,13 @@
-import fetchFromMockData from "./services/fetchFromMockData.js";
 import { monthlyAggregatePoints } from "./utils/monthlyAndTotalAggregatePoints.js";
 import { AllTransactions } from "./components/AllTransactions";
 import { MonthlyRewards } from "./components/MonthlyRewards";
 import TotalRewards from "./components/TotalRewards.jsx";
 import filterByMonths from "./utils/filterByMonths.js";
+import { useFetchStates } from "./hooks/useFetchStates.js";
+
 
 function App() {
-  const { data, loading, error } = fetchFromMockData();
+  const { data, loading, error } = useFetchStates('/mockDataApi.js');
   const todaysDate = new Date().toISOString().split("T")[0];
   const numberOfMonths = 3;
   const last3MonthsData = filterByMonths(data, todaysDate, numberOfMonths);
