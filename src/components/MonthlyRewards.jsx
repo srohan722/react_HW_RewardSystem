@@ -43,4 +43,4 @@ MonthlyRewards.propTypes = {
     })
   ).isRequired,
 };
-export default MonthlyRewards;
+export default React.memo(MonthlyRewards);

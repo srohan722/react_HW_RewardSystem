@@ -1,3 +1,5 @@
+import logger from "./logger";
+
 /**
  * Filters data objects by date within a specified number of months.
  *
@@ -15,7 +17,7 @@ const filterByMonths = (data, todaysDateString, numberOfMonths) => {
     const itemDate = new Date(dateString);
 
     if (isNaN(itemDate) || isNaN(todaysDate)) {
-      console.warn(
+      logger.warn(
         `Invalid date encountered: itemDate - ${dateString}, todaysDate - ${todaysDateString}`
       );
       return false;

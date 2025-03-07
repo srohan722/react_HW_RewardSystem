@@ -1,19 +1,23 @@
 import { monthlyAggregatePoints } from "./utils/monthlyAndTotalAggregatePoints.js";
+import { MOCK_DATA_URL, NUMBER_OF_MONTHS } from "./utils/config.js";
 import { AllTransactions } from "./components/AllTransactions";
 import { MonthlyRewards } from "./components/MonthlyRewards";
 import TotalRewards from "./components/TotalRewards.jsx";
 import filterByMonths from "./utils/filterByMonths.js";
-import { useFetchStates } from "./hooks/useFetchStates.js";
-
+import { useFetchTransactions } from "./hooks/useFetchTransactions.js";
+import { useMemo } from "react";
 
 function App() {
-  const { data, loading, error } = useFetchStates('/mockDataApi.js');
+  const { data, loading, error } = useFetchTransactions(MOCK_DATA_URL);
   const todaysDate = new Date().toISOString().split("T")[0];
-  const numberOfMonths = 3;
-  const last3MonthsData = filterByMonths(data, todaysDate, numberOfMonths);
-
-  const calculatedRewards = monthlyAggregatePoints(last3MonthsData);
-
+  const last3MonthsData = useMemo(
+    () => filterByMonths(data, todaysDate, NUMBER_OF_MONTHS),
+    [data, todaysDate, NUMBER_OF_MONTHS]
+  );
+  const calculatedRewards = useMemo(
+    () => monthlyAggregatePoints(last3MonthsData),
+    [last3MonthsData]
+  );
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error fetching data: {error.message}</p>;
   return (

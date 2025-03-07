@@ -51,12 +51,13 @@ src/
 │   ├── MonthlyRewardsTable.jsx
 │   └── TotalRewardsTable.jsx
 ├── hooks/
-|   └── useFetchStates.js
+|   └── useFetchTransactions.js
 ├── services/
 │   └── fetchMockDataSet.js
 │
 ├── utils/
 │   ├── calculations.js
+│   ├── config.js
 │   ├── filterByMonths.js
 |   ├── logger.js
 │   └── monthlyAndTotalAggregatePoints.js

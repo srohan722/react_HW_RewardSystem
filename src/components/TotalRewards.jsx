@@ -32,4 +32,4 @@ TotalRewards.propTypes = {
   ).isRequired,
 };
 
-export default TotalRewards;
+export default React.memo(TotalRewards);
